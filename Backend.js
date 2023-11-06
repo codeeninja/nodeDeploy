@@ -3,15 +3,16 @@ const app = express();
 const bcrypt = require('bcrypt');
 const Sequelize = require('sequelize');
 const jwt = require('jsonwebtoken');
-const key = 'shivamkaleisgoodboy'
+
 const { DataTypes } = require('sequelize');
 const { json } = require('body-parser');
 app.use(express.json());
 
-const sequelize = new Sequelize('mydb', 'root', '', {
-    host: 'localhost',
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+    host: process.env.DB_HOST,
     dialect: 'mysql'
 });
+const key = process.env.JWT_SECRET_KEY;
 
 const formData = sequelize.define('formData', {
     question: {
