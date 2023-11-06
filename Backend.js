@@ -12,9 +12,9 @@ const sequelize = new Sequelize({
     database: process.env.DB_NAME,
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
-    host:process.env.DB_HOST,
+    host: process.env.DB_HOST,
     port: process.env.DB_PORT,
-    dialect: 'mysql',
+    dialect: 'mysql', // or your preferred dialect
   });
   
 const key = process.env.JWT_SECRET_KEY;
