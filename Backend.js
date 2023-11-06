@@ -9,16 +9,16 @@ const { json } = require('body-parser');
 app.use(express.json());
 
 const sequelize = new Sequelize({
-    database: process.env.DB_NAME,
+    database: process.env.DB_NAME, // Verify this is set correctly to "mydb"
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     dialect: 'mysql', // or your preferred dialect
   });
-  
-const key = process.env.JWT_SECRET_KEY;
 
+const key = process.env.JWT_SECRET_KEY;
+console.log("db_name",process.env.DB_NAME)
 const formData = sequelize.define('formData', {
     question: {
         type: DataTypes.STRING,
